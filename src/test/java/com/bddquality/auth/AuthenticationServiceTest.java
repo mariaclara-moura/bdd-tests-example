@@ -1,26 +1,25 @@
 package com.bddquality.auth;
 
+import com.tngtech.jgiven.junit5.SimpleScenarioTest;
 import org.junit.jupiter.api.Test;
 
-class AuthenticationServiceTest {
+class AuthenticationServiceTest extends SimpleScenarioTest<AuthenticationScenario> {
 
     @Test
     void shouldAuthenticateUserWithValidCredentials() {
-        AuthenticationScenario scenario = new AuthenticationScenario();
+        given().a_user_with_valid_credentials();
 
-        scenario
-                .givenAUserWithValidCredentials()
-                .whenTheUserAttemptsToLogIn()
-                .thenTheUserIsAuthenticated();
+        when().the_user_attempts_to_log_in();
+
+        then().the_user_is_authenticated();
     }
 
     @Test
     void shouldRejectAuthenticationWithInvalidCredentials() {
-        AuthenticationScenario scenario = new AuthenticationScenario();
+        given().a_user_with_invalid_credentials();
 
-        scenario
-                .givenAUserWithInvalidCredentials()
-                .whenTheUserAttemptsToLogIn()
-                .thenAuthenticationIsRejected();
+        when().the_user_attempts_to_log_in();
+
+        then().authentication_is_rejected();
     }
 }
