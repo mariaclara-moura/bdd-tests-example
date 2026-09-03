@@ -1,21 +1,38 @@
 # BDD-Style Test Quality Evaluation
 
-This repository contains a small Java project designed to support the evaluation of automated tests using the proposed BDD-style test quality criteria (T1–T12).
+This repository contains a controlled Java project designed to support the evaluation of automated test quality using the proposed T1–T12 instrument.
 
 ## Purpose
 
-The project provides a controlled test suite written using an explicit Given → When → Then structure without requiring a `.feature` file.
+The project uses **JGiven** to write tests using an explicit **Given → When → Then** structure.
 
 ## Structure
 
-- `src/main/java/com/bddquality/auth/AuthenticationService.java`: system under test
-- `src/test/java/com/bddquality/auth/AuthenticationScenario.java`: Given/When/Then scenario helper
-- `src/test/java/com/bddquality/auth/AuthenticationServiceTest.java`: test suite evaluated by participants
+- `AuthenticationService.java`: system under test
+- `AuthenticationScenario.java`: single JGiven stage class containing all scenario steps
+- `AuthenticationServiceTest.java`: test suite evaluated by participants
+
+## Example
+
+```java
+@Test
+void shouldAuthenticateUserWithValidCredentials() {
+    given().a_user_with_valid_credentials();
+
+    when().the_user_attempts_to_log_in();
+
+    then().the_user_is_authenticated();
+}
+```
+
+The project uses JGiven's `SimpleScenarioTest`, allowing all steps to remain in a single stage class. JGiven also provides `and()` when a scenario requires additional conditions, actions, or outcomes.
+
+## Running the Tests
+
+```bash
+mvn test
+```
 
 ## Evaluation
 
-Participants should inspect the test file and evaluate it according to the T1–T12 instrument.
-
-## Running the tests
-
-Run `mvn test`.
+Participants should inspect the repository and evaluate the tests using the T1–T12 quality evaluation instrument.
