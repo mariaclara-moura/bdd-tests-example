@@ -1,6 +1,6 @@
 # BDD-Style Test Quality Evaluation
 
-This repository contains a controlled Java project designed to support the evaluation of automated test quality using the proposed T1–T12 instrument.
+This repository contains a controlled Java project designed to support the evaluation of test quality using the proposed T1–T12 checklist instrument.
 
 ## Purpose
 
@@ -35,4 +35,4 @@ mvn test
 
 ## Evaluation
 
-Participants should inspect the repository and evaluate the tests using the T1–T12 quality evaluation instrument.
+Participants should inspect the repository and evaluate if using the T1–T12 quality evaluation instrument is effective.
